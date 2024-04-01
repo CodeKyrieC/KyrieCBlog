@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Springboot整合阿里云OSS, KyrieC&#39;s World">
-    <meta name="description" content="Springboot个人博客项目使用阿里云OSS">
+    <meta name="keywords" content="数学学习笔记, KyrieC&#39;s World">
+    <meta name="description" content="恶补数学">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Springboot整合阿里云OSS | KyrieC&#39;s World</title>
+    <title>数学学习笔记 | KyrieC&#39;s World</title>
     <link rel="icon" type="image/png" href="/KyrieCBlog/favicon.png">
     
 
@@ -340,12 +340,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/KyrieCBlog/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/KyrieCBlog/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Springboot整合阿里云OSS</h1>
+                    <h1 class="description center-align post-title">数学学习笔记</h1>
                 </div>
             </div>
         </div>
@@ -369,8 +369,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/KyrieCBlog/tags/%E6%8A%80%E6%9C%AF/">
-                                <span class="chip bg-color">技术</span>
+                            <a href="/KyrieCBlog/tags/%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">学习</span>
+                            </a>
+                        
+                            <a href="/KyrieCBlog/tags/%E6%95%B0%E5%AD%A6/">
+                                <span class="chip bg-color">数学</span>
                             </a>
                         
                     </div>
@@ -381,8 +385,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/KyrieCBlog/categories/Java/" class="post-category">
-                                Java
+                            <a href="/KyrieCBlog/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                学习
                             </a>
                         
                     </div>
@@ -394,7 +398,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-10-28
+                    2024-01-04
                 </div>
                 
 
@@ -403,14 +407,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    719
+                    9
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    1 分
                 </div>
                 
 
@@ -430,188 +434,18 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="创建对象存储oss服务，创建bucket"><a href="#创建对象存储oss服务，创建bucket" class="headerlink" title="创建对象存储oss服务，创建bucket"></a>创建对象存储oss服务，创建bucket</h2><h2 id="进入AccessKey创建并记录AccessKey-ID与AccessKey-Secret"><a href="#进入AccessKey创建并记录AccessKey-ID与AccessKey-Secret" class="headerlink" title="进入AccessKey创建并记录AccessKey ID与AccessKey Secret"></a>进入AccessKey创建并记录AccessKey ID与AccessKey Secret</h2><h2 id="导入官方SDK"><a href="#导入官方SDK" class="headerlink" title="导入官方SDK"></a>导入官方SDK</h2><pre class=" language-xml"><code class="language-xml">        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.aliyun.oss<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>aliyun-sdk-oss<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.8.3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
- 
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>junit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>junit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>4.12<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
- 
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
- 
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>commons-lang<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>commons-lang<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.6<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
- 
-        <span class="token comment" spellcheck="true">&lt;!-- lombok --></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.projectlombok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>lombok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.18.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
-</code></pre>
-<h2 id="配置文件中配置控制台的AccessKey"><a href="#配置文件中配置控制台的AccessKey" class="headerlink" title="配置文件中配置控制台的AccessKey"></a>配置文件中配置控制台的AccessKey</h2><pre class=" language-yml"><code class="language-yml">aliyun:
-  oss:
-    file:
-      endpoint: oss-cn-wuhan-lr.aliyuncs.com
-      keyid: LTAI5tCKyLYkLhZaCiFh9w4e
-      keysecret: 
-      bucketname: springboot-blog-pic
-</code></pre>
-<h2 id="添加一个配置类，读取配置文件信息"><a href="#添加一个配置类，读取配置文件信息" class="headerlink" title="添加一个配置类，读取配置文件信息"></a>添加一个配置类，读取配置文件信息</h2><pre class=" language-java"><code class="language-java"><span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>InitializingBean<span class="token punctuation">;</span>
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Value<span class="token punctuation">;</span>
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>context<span class="token punctuation">.</span>properties<span class="token punctuation">.</span>ConfigurationProperties<span class="token punctuation">;</span>
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span>Component<span class="token punctuation">;</span>
- 
-<span class="token annotation punctuation">@Component</span>
-<span class="token annotation punctuation">@ConfigurationProperties</span><span class="token punctuation">(</span>prefix <span class="token operator">=</span> <span class="token string">"oss.aliyun"</span><span class="token punctuation">)</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ConstantPropertiesUtils</span> <span class="token keyword">implements</span> <span class="token class-name">InitializingBean</span> <span class="token punctuation">{</span>
- 
-    <span class="token comment" spellcheck="true">//读取配置文件的内容</span>
-    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"${aliyun.oss.file.endpoint}"</span><span class="token punctuation">)</span>
-    <span class="token keyword">private</span> String endpoint<span class="token punctuation">;</span>
-    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"${aliyun.oss.file.keyid}"</span><span class="token punctuation">)</span>
-    <span class="token keyword">private</span> String keyId<span class="token punctuation">;</span>
-    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"${aliyun.oss.file.keysecret}"</span><span class="token punctuation">)</span>
-    <span class="token keyword">private</span> String keySecret<span class="token punctuation">;</span>
-    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"${aliyun.oss.file.bucketname}"</span><span class="token punctuation">)</span>
-    <span class="token keyword">private</span> String bucketName<span class="token punctuation">;</span>
- 
-    <span class="token comment" spellcheck="true">//定义公共静态常量</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> String END_POINT<span class="token punctuation">;</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> String ACCESS_KEY_ID<span class="token punctuation">;</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> String ACCESS_KEY_SECRET<span class="token punctuation">;</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> String BUCKET_NAME<span class="token punctuation">;</span>
- 
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">afterPropertiesSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token punctuation">{</span>
-        END_POINT <span class="token operator">=</span> endpoint<span class="token punctuation">;</span>
-        ACCESS_KEY_ID <span class="token operator">=</span> keyId<span class="token punctuation">;</span>
-        ACCESS_KEY_SECRET <span class="token operator">=</span> keySecret<span class="token punctuation">;</span>
-        BUCKET_NAME <span class="token operator">=</span> bucketName<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h2 id="编写控制类"><a href="#编写控制类" class="headerlink" title="编写控制类"></a>编写控制类</h2><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> cn<span class="token punctuation">.</span>kyriec<span class="token punctuation">.</span>Controller<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> cn<span class="token punctuation">.</span>kyriec<span class="token punctuation">.</span>domain<span class="token punctuation">.</span>entity<span class="token punctuation">.</span>ResponseResult<span class="token punctuation">;</span>
-<span class="token keyword">import</span> cn<span class="token punctuation">.</span>kyriec<span class="token punctuation">.</span>service<span class="token punctuation">.</span>UploadService<span class="token punctuation">;</span>
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Autowired<span class="token punctuation">;</span>
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>PostMapping<span class="token punctuation">;</span>
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>RestController<span class="token punctuation">;</span>
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>multipart<span class="token punctuation">.</span>MultipartFile<span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">/**
- * Author by KyrieC
- * Created by sheting on 2023/10/28
- */</span>
-<span class="token annotation punctuation">@RestController</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UploadController</span> <span class="token punctuation">{</span>
-    <span class="token annotation punctuation">@Autowired</span>
-    <span class="token keyword">private</span> UploadService uploadService<span class="token punctuation">;</span>
-
-    <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"/upload"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> ResponseResult <span class="token function">uploadImg</span><span class="token punctuation">(</span>MultipartFile img<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">return</span> uploadService<span class="token punctuation">.</span><span class="token function">uploadImg</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h2 id="编写接口与实现类"><a href="#编写接口与实现类" class="headerlink" title="编写接口与实现类"></a>编写接口与实现类</h2><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> cn<span class="token punctuation">.</span>kyriec<span class="token punctuation">.</span>service<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> cn<span class="token punctuation">.</span>kyriec<span class="token punctuation">.</span>domain<span class="token punctuation">.</span>entity<span class="token punctuation">.</span>ResponseResult<span class="token punctuation">;</span>
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>multipart<span class="token punctuation">.</span>MultipartFile<span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">/**
- * Author by KyrieC
- * Created by sheting on 2023/10/28
- */</span>
-<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">UploadService</span> <span class="token punctuation">{</span>
-    ResponseResult <span class="token function">uploadImg</span><span class="token punctuation">(</span>MultipartFile img<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">}</span>
-</code></pre>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> cn<span class="token punctuation">.</span>kyriec<span class="token punctuation">.</span>service<span class="token punctuation">.</span>Impl<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> cn<span class="token punctuation">.</span>kyriec<span class="token punctuation">.</span>domain<span class="token punctuation">.</span>entity<span class="token punctuation">.</span>ResponseResult<span class="token punctuation">;</span>
-<span class="token keyword">import</span> cn<span class="token punctuation">.</span>kyriec<span class="token punctuation">.</span>service<span class="token punctuation">.</span>UploadService<span class="token punctuation">;</span>
-<span class="token keyword">import</span> cn<span class="token punctuation">.</span>kyriec<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>AliyunOssUtil<span class="token punctuation">;</span>
-<span class="token keyword">import</span> com<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>oss<span class="token punctuation">.</span>OSS<span class="token punctuation">;</span>
-<span class="token keyword">import</span> com<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>oss<span class="token punctuation">.</span>OSSClient<span class="token punctuation">;</span>
-<span class="token keyword">import</span> lombok<span class="token punctuation">.</span>Data<span class="token punctuation">;</span>
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span>Service<span class="token punctuation">;</span>
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>multipart<span class="token punctuation">.</span>MultipartFile<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>IOException<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>InputStream<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>UUID<span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">/**
- * Author by KyrieC
- * Created by sheting on 2023/10/28
- */</span>
-<span class="token annotation punctuation">@Service</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OssUploadService</span> <span class="token keyword">implements</span> <span class="token class-name">UploadService</span> <span class="token punctuation">{</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> ResponseResult <span class="token function">uploadImg</span><span class="token punctuation">(</span>MultipartFile file<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        String endpoint <span class="token operator">=</span> AliyunOssUtil<span class="token punctuation">.</span>END_POINT<span class="token punctuation">;</span>
-        String accessKeyId <span class="token operator">=</span> AliyunOssUtil<span class="token punctuation">.</span>ACCESS_KEY_ID<span class="token punctuation">;</span>
-        String accessKeySecret <span class="token operator">=</span> AliyunOssUtil<span class="token punctuation">.</span>ACCESS_KEY_SECRET<span class="token punctuation">;</span>
-        String bucketName <span class="token operator">=</span> AliyunOssUtil<span class="token punctuation">.</span>BUCKET_NAME<span class="token punctuation">;</span>
-        String url <span class="token operator">=</span> null<span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">//创建OSSClient实例。</span>
-        OSS ossClient <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">OSSClient</span><span class="token punctuation">(</span>endpoint<span class="token punctuation">,</span> accessKeyId<span class="token punctuation">,</span> accessKeySecret<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">//获取上传文件输入流</span>
-        InputStream inputStream <span class="token operator">=</span> null<span class="token punctuation">;</span>
-        <span class="token keyword">try</span> <span class="token punctuation">{</span>
-            inputStream <span class="token operator">=</span> file<span class="token punctuation">.</span><span class="token function">getInputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token comment" spellcheck="true">//获取文件名称</span>
-        String fileName <span class="token operator">=</span> file<span class="token punctuation">.</span><span class="token function">getOriginalFilename</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">//保证文件名唯一，去掉uuid中的'-'</span>
-        String uuid <span class="token operator">=</span> UUID<span class="token punctuation">.</span><span class="token function">randomUUID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replaceAll</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        fileName <span class="token operator">=</span> uuid <span class="token operator">+</span> fileName<span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">//把文件按日期分类，构建日期路径：avatar/2019/02/26/文件名</span>
-        <span class="token comment" spellcheck="true">//String datePath = new Date().toString("yyyy/MM/dd");</span>
-        String datePath <span class="token operator">=</span> <span class="token string">"2023"</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//拼接</span>
-        fileName <span class="token operator">=</span> datePath <span class="token operator">+</span> <span class="token string">"/"</span> <span class="token operator">+</span> fileName<span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">//调用oss方法上传到阿里云</span>
-        <span class="token comment" spellcheck="true">//第一个参数：Bucket名称</span>
-        <span class="token comment" spellcheck="true">//第二个参数：上传到oss文件路径和文件名称</span>
-        <span class="token comment" spellcheck="true">//第三个参数：上传文件输入流</span>
-        ossClient<span class="token punctuation">.</span><span class="token function">putObject</span><span class="token punctuation">(</span>bucketName<span class="token punctuation">,</span> fileName<span class="token punctuation">,</span> inputStream<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">//把上传后把文件url返回</span>
-        <span class="token comment" spellcheck="true">//https://xppll.oss-cn-beijing.aliyuncs.com/01.jpg</span>
-        url <span class="token operator">=</span> <span class="token string">"https://"</span> <span class="token operator">+</span> bucketName <span class="token operator">+</span> <span class="token string">"."</span> <span class="token operator">+</span> endpoint <span class="token operator">+</span> <span class="token string">"/"</span> <span class="token operator">+</span> fileName<span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//关闭OSSClient</span>
-        ossClient<span class="token punctuation">.</span><span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-
-
-        <span class="token keyword">return</span> ResponseResult<span class="token punctuation">.</span><span class="token function">okResult</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>参考博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/kenkao/article/details/128880448">SpringBoot整合阿里云OSS详细教程_springboot 阿里云oss-CSDN博客</a></p>
-
+                <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="9294763a7affcd625439d9acac031fed106234ba2f2d9be766d2176c36555ebd">55dc79e30b39ac1c5b611142958f086e2d3732e4295b854e1c1ba1c50e40430d3202bc16e520f88fb66bbc7003917978c9488794c1e75661df8558fd6787e4821790736aea9738c362e1e23eaa3b7cdd47346ae7cfcf182634b7cf1404f1bd290a5dd03c3aa9919700b7b58c88bd9e0da33e9bf20c398374cae7df660a3eab190b9d37782503ee1969ea45dff6d56e69f23603777332854ac6bd0c05c74ee1dba6b8d0fe6cfd3b3e52c7e2fbc2e8f799cad79076e1abf2d0bcb31de86fe57006026712940f1f7941240683b344e3cdf5038aaa0b3419469d5a703b7e0be78c24c0e6b978b8a93fddb23be77a635ee3ea5635437acea677103e04bd2a0d0c518d</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">请输入该文章密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/KyrieCBlog/lib/hbe.js"></script><link href="/KyrieCBlog/css/hbe.style.css" rel="stylesheet" type="text/css">
                 
             </div>
             <hr/>
@@ -637,7 +471,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.com/CodeKyrieC/KyrieCBlog/KyrieCBlog/2023/10/28/java_oss/">https://github.com/CodeKyrieC/KyrieCBlog/KyrieCBlog/2023/10/28/java_oss/</a>
+                    <a href="https://github.com/CodeKyrieC/KyrieCBlog/KyrieCBlog/2024/01/04/math_study/">https://github.com/CodeKyrieC/KyrieCBlog/KyrieCBlog/2024/01/04/math_study/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -675,8 +509,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/KyrieCBlog/tags/%E6%8A%80%E6%9C%AF/">
-                                    <span class="chip bg-color">技术</span>
+                                <a href="/KyrieCBlog/tags/%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">学习</span>
+                                </a>
+                            
+                                <a href="/KyrieCBlog/tags/%E6%95%B0%E5%AD%A6/">
+                                    <span class="chip bg-color">数学</span>
                                 </a>
                             
                         </div>
@@ -1082,24 +920,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/KyrieCBlog/2024/01/04/math_study/">
+                <a href="/KyrieCBlog/2024/01/10/english_word/">
                     <div class="card-image">
                         
                         
-                        <img src="/KyrieCBlog/medias/featureimages/1.jpg" class="responsive-img" alt="数学学习笔记">
+                        <img src="/KyrieCBlog/medias/featureimages/7.jpg" class="responsive-img" alt="英语词汇">
                         
-                        <span class="card-title">数学学习笔记</span>
+                        <span class="card-title">英语词汇</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            恶补数学
+                            恶补英语词汇
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-04
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-10
                         </span>
                         <span class="publish-author">
                             
@@ -1120,8 +958,8 @@
                         <span class="chip bg-color">学习</span>
                     </a>
                     
-                    <a href="/KyrieCBlog/tags/%E6%95%B0%E5%AD%A6/">
-                        <span class="chip bg-color">数学</span>
+                    <a href="/KyrieCBlog/tags/%E8%8B%B1%E8%AF%AD/">
+                        <span class="chip bg-color">英语</span>
                     </a>
                     
                 </div>
@@ -1135,24 +973,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/KyrieCBlog/2023/10/09/java_list/">
+                <a href="/KyrieCBlog/2023/10/28/java_oss/">
                     <div class="card-image">
                         
                         
-                        <img src="/KyrieCBlog/medias/featureimages/6.jpg" class="responsive-img" alt="JAVA中List集合Stream流详解与lambda表达式">
+                        <img src="/KyrieCBlog/medias/featureimages/6.jpg" class="responsive-img" alt="Springboot整合阿里云OSS">
                         
-                        <span class="card-title">JAVA中List集合Stream流详解与lambda表达式</span>
+                        <span class="card-title">Springboot整合阿里云OSS</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JAVA中List集合Stream流详解与lambda表达式
+                            Springboot个人博客项目使用阿里云OSS
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-28
                             </span>
                         <span class="publish-author">
                             
